@@ -11,7 +11,14 @@
         }
 
         div.ia21-player{
+            display: flex;
+            flex-direction: column;
             border: 1px solid black;
+            width: 200px;
+        }
+
+        div.ia21-player video{
+            width: 100%;
         }
 
         div.ia21-player div.controllers{
@@ -41,6 +48,7 @@
         }
 
         div.ia21-player div.controllers div.dragbar div.draggable{
+            --percent: 0%;
             background-color: black;
             width: .5em;
             height: .5em;
@@ -48,16 +56,20 @@
             cursor: pointer;
             position: absolute;
             top: calc(50% - .25rem);
+            left: calc(var(--percent) - .25rem);
         }
     </style>
 </head>
 <body>
     
     <div class="ia21-player">
-        <video></video>
+        <video>
+            <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+            <source src="https://www.w3schools.com/tags/movie.ogg" type="video/ogg">
+        </video>
         <div class="controllers">
-            <button class="play-pause" data-deleteme="⏸">
-                ⏵
+            <button class="play-pause" data-deleteme="▶️">
+                ▶️
             </button>
             <div class="dragbar timeline">
                 <div class="draggable"></div>
@@ -71,5 +83,43 @@
         </div>
     </div>
 
+    <div class="ia21-player">
+        <video>
+            <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+            <source src="https://www.w3schools.com/tags/movie.ogg" type="video/ogg">
+        </video>
+        <div class="controllers">
+            <button class="play-pause" data-deleteme="⏸">
+                ▶️
+            </button>
+            <div class="dragbar timeline">
+                <div class="draggable"></div>
+            </div>
+            <div class="timer">
+                00:00
+            </div>
+            </div class="dragbar volume">
+                <div class="draggable"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const containers = document.querySelectorAll("div.ia21-player")
+
+        containers.forEach(container => {
+            const playPause = container.querySelector("button.play-pause")
+            const video = container.querySelector("video")
+            const timeline = container.querySelector(".dragbar.timeline")
+            const timelineDrag = timeline.querySelector(".draggable") 
+            playPause.onclick = () => video.play()
+
+            video.addEventListener("timeupdate", () => {
+                const percent = video.currentTime / video.duration * 100
+                timelineDrag.style.setProperty("--percent", `$(percent)%`)
+                timer.innerText = video.currentTime = Math.floor(video.currentTime) 
+            })
+        })
+    </script>
 </body>
 </html>
