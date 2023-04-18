@@ -58,6 +58,8 @@
             top: calc(50% - .25rem);
             left: calc(var(--percent) - .25rem);
         }
+
+
     </style>
 </head>
 <body>
@@ -105,19 +107,45 @@
                
             
 
-            video.currentTime = 0
-
             video.addEventListener("timeupdate", () => {
+
                 const percent = video.currentTime / video.duration * 100
                 timelineDrag.style.setProperty("--percent", `${percent}%`)
                 let m = Math.floor(video.currentTime /60)
                 let s = Math.floor(video.currentTime)
                 timer.innerText = `${m % 60}:${s % 60} `
             
-
             })
-
             
+
+            const dragbars = container.querySelectorAll(".dragbar")
+
+            dragbars.forEach(dragbar => {
+                const dragabble = dragbar.querySelector(".draggable")
+
+                if(dragbar.classList.contains("volume")) {
+                    dragabble.style.setProperty("--percent", `100%`)
+                }
+                
+                dragbar.addEventListener("click", ev => {
+                    const width = Math.floor(dragbar.getBoundingClientRect().width)
+                    const index = (ev.offsetX / width)
+                    const percent = index * 100
+                    dragabble.style.setProperty("--percent", `${percent}%`)
+
+                    if (dragbar.classList.contains("timeline")) {
+                        console.log(video.duration * index );
+                        video.currentTime = video.duration * index 
+                        return 
+                    }
+
+                    if(dragbar.classList.contains("volume")) {
+                        video.volume = index
+                        return
+                    }
+                        
+                }) 
+            })
         })
     </script>
 </body>
