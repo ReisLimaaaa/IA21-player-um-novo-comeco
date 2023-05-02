@@ -18,15 +18,16 @@ input[type="checkbox"] {
 
 header {
   display: flex;
+  justify-content: space-between;
+  padding: 1rem;
   /* margin-top: 10px; */
-  width: 82rem;
-  height: 5rem;
   /* border: 3px solid red;   */
+  /* background: red; */
 }
 
 .youtube-logo {
   /* border: 3px solid blue;  */
-  width: 90rem; 
+  /* width: 50rem;  */
 } 
 
 div.center {
@@ -129,8 +130,11 @@ div.auto-falante{
   display: block;
 }
 
-.dark, 
-.dark header {
+.dark {
   background-color: #263238;
   color: #d1d8e0;
+}
+
+.dark .youtube-logo {
+  filter: invert(1);
 }
