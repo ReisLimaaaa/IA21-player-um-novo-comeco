@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #d1d8e0;
+    transition: 0.3s;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  /* margin-top: 10px; */
+  width: 82rem;
+  height: 5rem;
+  /* border: 3px solid red;   */
+}
+
+.youtube-logo {
+  /* border: 3px solid blue;  */
+  width: 90rem; 
+} 
+
+div.center {
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.ia21-player {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #a5b1c2;
+  border-radius: 5px;
+  width: 50rem;
+  font-size: 1.8rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+div.ia21-player video {
+  width: 100%;
+}
+
+div.ia21-player div.controllers {
+  display: flex;
+  border-top: 1px solid black;
+  column-gap: 1em;
+  padding-right: 1em;
+}
+
+div.ia21-player div.controllers button.play-pause {
+  background-color: transparent;
+  border: 0 none;
+  border-right: 1px solid black;
+  cursor: pointer;
+  font-size: .8em;
+  padding: .1em;
+  line-height: 2em;
+  width: 2em;
+}
+
+div.ia21-player div.controllers div.dragbar {
+  flex-grow: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+div.ia21-player div.controllers div.dragbar:before {
+  content: " ";
+  position: absolute;
+  top: calc(50% - .5px);
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+div.ia21-player div.controllers div.dragbar div.draggable {
+  --percent: 0%;
+  background-color: black;
+  width: .5em;
+  height: .5em;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - .25em);
+  left: calc(var(--percent) - .25em);
+  pointer-events: none;
+}
+
+div.ia21-player div.controllers div.dragbar.timeline {
+  width: 30%;
+}
+
+div.ia21-player div.controllers div.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.auto-falante{
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 12px;  
+}
+
+.bi {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.bi-moon {
+  display: none;  
+}
+
+.dark .bi-sun{
+  display: none;
+}
+
+.dark .bi-moon{
+  display: block;
+}
+
+.dark, 
+.dark header {
+  background-color: #263238;
+  color: #d1d8e0;
+}
