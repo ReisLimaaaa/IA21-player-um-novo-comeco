@@ -7,7 +7,17 @@ containers.forEach(async container => {
     const timeline = container.querySelector(".dragbar.timeline")
     const timelineDrag = timeline.querySelector(".draggable")
     const timer = container.querySelector(".timer")
+    const playlist = container.querySelector(".playlist")
     const dragbars = container.querySelectorAll(".dragbar")
+
+    const requisicao = await fetch(container.dataset.playlist)
+    const json = await requisicao.json()
+  
+    json.forEach(movie => {
+      playlist.innerHTML += `
+      <div>${movie.title}</div>
+      `
+    })
 
     changeThemeBtn.addEventListener("change", function() {
         document.body.classList.toggle("dark")
