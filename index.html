@@ -25,14 +25,18 @@
 </header>
 
 <body class="dark">
+
     <div class="center">
-        <div class="ia21-player" data-playlist="list1.json">
+        <div class="ia21-player" data-playlist="list01.json">
             <video>
-                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    type="video/mp4">
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 
             </video>
+
             <div class="controllers">
+
+                <label for="list">🗁</label>
+
                 <button class="play-pause" data-pause-icon="❚❚" data-play-icon="▶">
                     ▶
                 </button>
@@ -41,7 +45,6 @@
                 </div>
                 <div class="timer">
                     00:00:00
-
                 </div>
                 <div class="auto-falante">
                     <img src="/src/volume.png" alt="Volume Icon">
@@ -50,7 +53,8 @@
                     <div class="draggable"></div>
                 </div>
             </div>
-            <div class="playlist"></div>
+            <input id="list" type="checkbox">
+            <div class="playlist">Mas ai a gente vai ter que pensar muito</div>
         </div>
     </div>
     </div>

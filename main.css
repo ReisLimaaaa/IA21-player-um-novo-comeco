@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,300&display=swap');
 
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: #d1d8e0;
-    transition: 0.3s;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #d1d8e0;
+  transition: 0.3s;
 }
 
 input[type="checkbox"] {
@@ -28,14 +29,14 @@ header {
 .youtube-logo {
   /* border: 3px solid blue;  */
   /* width: 50rem;  */
-} 
+}
 
 div.center {
-    /* border: 1px solid; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 div.ia21-player {
@@ -62,6 +63,7 @@ div.ia21-player div.controllers {
 div.ia21-player div.controllers button.play-pause {
   background-color: transparent;
   border: 0 none;
+  border-left: 1px solid black;
   border-right: 1px solid black;
   cursor: pointer;
   font-size: .8em;
@@ -106,11 +108,11 @@ div.ia21-player div.controllers div.timer {
   align-items: center;
 }
 
-div.auto-falante{
+div.auto-falante {
   display: flex;
   width: 1.5rem;
   height: 1.5rem;
-  margin-top: 12px;  
+  margin-top: 12px;
 }
 
 .bi {
@@ -119,14 +121,14 @@ div.auto-falante{
 }
 
 .bi-moon {
-  display: none;  
-}
-
-.dark .bi-sun{
   display: none;
 }
 
-.dark .bi-moon{
+.dark .bi-sun {
+  display: none;
+}
+
+.dark .bi-moon {
   display: block;
 }
 
@@ -138,3 +140,19 @@ div.auto-falante{
 .dark .youtube-logo {
   filter: invert(1);
 }
+
+.playlist {
+  border: 2px solid red;
+}
+
+div.controllers [for="list"] {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#list:checked+div.playlist {
+  display: none;
+}
+
